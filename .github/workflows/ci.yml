@@ -50,3 +50,6 @@ jobs:
         run: echo "step-specific variable is $STEP_VAR"
         env:
           STEP_VAR: 'step_value'
+
+  call-reusable-workflow:
+    uses: pstraindemo/github-tutorial-1/.github/workflows/simple-workflow.yml@main
