@@ -30,7 +30,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: [build]
+    env:
+      JS_SECRET: ${{ secrets.JS_SECRET }}
+      GLOBAL_VAR: "global_value"
 
     steps:
-      - name: test secrets
-        run: echo ${{ secrets.JS_SECRET }}
+      - name: test secret
+        run: echo "global secret is $JS_SECRET"
+
+      - name: test global variable
+        run: echo "Global variable is $GLOBAL_VAR"
+
+      - name: test local variable
+        run: echo "step-specific variable is $STEP_VAR"
+        env:
+          STEP_VAR: 'step_value'
