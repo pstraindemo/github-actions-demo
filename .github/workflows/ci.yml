@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CUSTOM_MESSAGE: "Welcome to the Github Demo!"
 
     steps:
       - name: Checkout code
@@ -26,6 +28,9 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: print message
+        run: echo "custom message is $CUSTOM_MESSAGE"
 
   test:
     runs-on: ubuntu-latest
