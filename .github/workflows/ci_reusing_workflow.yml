@@ -1,0 +1,16 @@
+name: CI Reused Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: pstraindemo/github-tutorial-1/.github/workflows/ci-reusable.yml@main
+    with:
+      node-version: '14'
+      custom-message: 'Hello from the calling workflow!'
