@@ -1,0 +1,14 @@
+name: CI Reusable Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: pstraindemo/github-tutorial-1/.github/workflows/simple-workflow.yml@main
+
